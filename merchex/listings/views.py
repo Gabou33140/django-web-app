@@ -1,21 +1,15 @@
 # ~/projects/django-web-app/merchex/listings/views.py
 
 from django.http import HttpResponse
-# from django.shortcuts import render
+from django.shortcuts import render
 from listings.models import Band, Listing
 
 
 def hello(request):
-    band = Band.objects.all()
-    return HttpResponse(f"""
-            <h1>Hello Django!</h1>
-            <p> Voici 3 groupes : <p>
-            <ul>
-                <li>{band[0].name}</li>
-                <li>{band[1].name}</li>
-                <li>{band[2].name}</li>
-            </ul>
-            """)
+    bands = Band.objects.all()
+    return render(request,
+    'listings/hello.html',
+    {'bands': bands})
 
 
 def about(request):
