@@ -11,9 +11,9 @@ def hello(request):
             <h1>Hello Django!</h1>
             <p> Voici 3 groupes : <p>
             <ul>
-                <li>{band[0]}</li>
-                <li>{band[1]}</li>
-                <li>{band[2]}</li>
+                <li>{band[0].name}</li>
+                <li>{band[1].name}</li>
+                <li>{band[2].name}</li>
             </ul>
             """)
 
@@ -31,8 +31,8 @@ def listing(request):
     return HttpResponse(f"""
             <h1>Voici la liste:</h1>
             <ul>
-                <li>{listing[0]}</li>
-                <li>{listing[1]}</li>
-                <li>{listing[2]}</li>
+                <li>{listing[0].title}</li>
+                <li>{listing[1].title}</li>
+                <li>{listing[2].title}</li>
             </ul>
             """)
