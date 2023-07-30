@@ -17,4 +17,14 @@ class Band(models.Model):
 
     
 class Listing(models.Model):
+    class Type(models.TextChoices):
+        RECORDS = "RC"
+        CLOTHINGS = "CL"
+        POSTER = "PS"
+        MISCELLANEOUS = "MS"
     title = models.fields.CharField(max_length=100)
+    description = models.fields.CharField(max_length=100, null=False, default='Pas de description')
+    sold = models.fields.BooleanField(default=False)
+    year = models.fields.IntegerField(validators=[MinValueValidator(2000)], null=True)
+    type = models.CharField(choices=Type.choices, max_length=20, null=False, default="Autres")
+
