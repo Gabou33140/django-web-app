@@ -32,3 +32,9 @@ class Listing(models.Model):
     year = models.fields.IntegerField(validators=[MinValueValidator(2000)], null=True)
     type = models.CharField(choices=Type.choices, max_length=20, null=False, default="Autres")
     band = models.ForeignKey(Band, null=True, on_delete=models.SET_NULL)
+
+
+class Contact(models.Model):
+    name = models.fields.CharField(max_length=100)
+    email = models.fields.EmailField()
+    message = models.fields.CharField(max_length=1000)
